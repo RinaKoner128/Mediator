@@ -43,6 +43,6 @@ public class Controller implements Initializable, Mediator {
     }
 
     public void Cl(ActionEvent actionEvent) {
-        ap2.setVisible(true);
+        ap2.setVisible(true);//а это зачем?
     }
 }
