@@ -3,7 +3,7 @@ package sample.Metods;
 public abstract class Colleague {
     protected Mediator mediator;
 
-    Qweston receivedMessage;
+    private Qweston receivedMessage;
 
     public Colleague(Mediator mediator) {
         this.mediator = mediator;
