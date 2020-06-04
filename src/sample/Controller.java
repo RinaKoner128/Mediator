@@ -20,10 +20,10 @@ public class Controller implements Initializable, Mediator {
     private HashMap<String, Colleague> id=new HashMap<>();
     private Colleague currentcolleague;
     private Qweston basetest;
-    ArrayList<StringProperty> answergood;
 
 
     public void onStart(ActionEvent actionEvent) {
+        viewpane.getChildren().clear();
         currentcolleague =id.get(login.getText());
         if(currentcolleague==null) currentcolleague =id.get("1");
         currentcolleague.receive(basetest);
@@ -32,7 +32,6 @@ public class Controller implements Initializable, Mediator {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         basetest = new Qweston("Антонимы");
-        basetest.setAnswergood(answergood);
         id.put("student", new Worker(this));
         id.put("lector", new Editor(this));
         id.put("1", new Viewer(this));

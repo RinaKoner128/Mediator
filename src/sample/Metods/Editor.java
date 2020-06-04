@@ -1,6 +1,5 @@
 package sample.Metods;
 
-import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
@@ -15,9 +14,6 @@ public class Editor extends Colleague {
         TextField qwfield = new TextField();
         qwfield.textProperty().bindBidirectional(message.questionProperty());
         qwpane.getChildren().add(qwfield);
-        Separator separator = new Separator();
-        separator.setMaxWidth(20);
-        qwpane.getChildren().add(separator);
         for (int i = 0; i < message.getAnswergood().size(); i++) {
             TextField qwfieldi = new TextField();
             qwfieldi.textProperty().bindBidirectional(message.getAnswergood().get(i));

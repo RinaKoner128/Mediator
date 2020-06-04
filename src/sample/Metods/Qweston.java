@@ -4,23 +4,20 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Map;
 
 public class Qweston {
     StringProperty question;
     ArrayList<StringProperty> answergood;
     ArrayList<StringProperty> badanswer;
     Integer type;
-    Collection aw = new HashSet();
+
 
     public Qweston(String qw) {
         question = new SimpleStringProperty(qw);
         answergood = new ArrayList<>();
         badanswer = new ArrayList<>();
-        aw.add("5654549");
     }
+
 
     public String getQuestion() {
         return question.get();
@@ -35,6 +32,9 @@ public class Qweston {
     }
 
     public ArrayList<StringProperty> getBadanswer() {
+        badanswer.add(new SimpleStringProperty("темный"));
+        badanswer.add(new SimpleStringProperty("мокрый"));
+        badanswer.add(new SimpleStringProperty("холодный"));
         return badanswer;
     }
 
@@ -61,7 +61,7 @@ public class Qweston {
     }
 
     public ArrayList<StringProperty> getAnswergood() {
-       answergood.addAll(aw);
+        answergood.add(new SimpleStringProperty("сладкий"));
         return answergood;
     }
 
