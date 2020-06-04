@@ -24,7 +24,7 @@ public class Viewer extends Colleague {
             qwpane.getChildren().add(answe);
         }
         Label no = new Label();
-        ques.setText("Не верно");
+        no.setText("Не верно");
         qwpane.getChildren().add(no);
         for (int i = 0; i < message.getBadanswer().size(); i++) {
             Label bad = new Label();

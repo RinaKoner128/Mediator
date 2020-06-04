@@ -32,22 +32,11 @@ public class Qweston {
     }
 
     public ArrayList<StringProperty> getBadanswer() {
-        badanswer.add(new SimpleStringProperty("темный"));
-        badanswer.add(new SimpleStringProperty("мокрый"));
-        badanswer.add(new SimpleStringProperty("холодный"));
         return badanswer;
     }
 
     public void setBadanswer(ArrayList<StringProperty> badanswer) {
         this.badanswer = badanswer;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
     }
 
     public int addTrue(String s) {
@@ -61,7 +50,6 @@ public class Qweston {
     }
 
     public ArrayList<StringProperty> getAnswergood() {
-        answergood.add(new SimpleStringProperty("сладкий"));
         return answergood;
     }
 
