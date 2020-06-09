@@ -5,13 +5,12 @@ import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import sample.Metods.*;
 
+import java.io.*;
 import java.net.URL;
 import java.util.*;
 
@@ -37,7 +36,11 @@ public class Controller implements Initializable, Mediator {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         basetest = new Qweston("Антонимы");
-        init();
+        try {
+            init();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         id.put("student", new Worker(this));
         id.put("lector", new Editor(this));
         id.put("1", new Viewer(this));
@@ -53,10 +56,26 @@ public class Controller implements Initializable, Mediator {
         ap2.setVisible(true);
     }
 
-    public void init() {
-        badanswer.add(new SimpleStringProperty("темный"));
-        badanswer.add(new SimpleStringProperty("мокрый"));
-        badanswer.add(new SimpleStringProperty("холодный"));
+    public void init() throws IOException {
+            BufferedReader reader = new BufferedReader( new FileReader ("questions.txt"));
+            String line = null;
+            StringBuilder stringBuilder = new StringBuilder();
+            String ls = System.getProperty("line.separator");
+            while( ( line = reader.readLine() ) != null ) {
+                stringBuilder.append( line );
+                stringBuilder.append( ls );
+            }
+            stringBuilder.deleteCharAt(stringBuilder.length()-1);
+            stringBuilder.toString();
+        badanswer.add(new SimpleStringProperty(stringBuilder.substring(
+                0,stringBuilder.indexOf(",", stringBuilder.indexOf(",") + 0))));
+        badanswer.add(new SimpleStringProperty(stringBuilder.substring(
+                stringBuilder.indexOf(",")+1,
+                stringBuilder.indexOf(",", stringBuilder.indexOf(",") + 1))));
+        badanswer.add(new SimpleStringProperty(stringBuilder.substring(
+                stringBuilder.indexOf(",", stringBuilder.indexOf(",") + 1)+1,
+                stringBuilder.lastIndexOf(","))));
+
         answergood.add(new SimpleStringProperty("сладкий"));
         basetest.setAnswergood(answergood);
         basetest.setBadanswer(badanswer);
