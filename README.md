@@ -23,7 +23,7 @@ Mediator - это программный модуль авторизации в 
    
 ![alt text](https://github.com/RinaKoner128/Mediator/blob/develop/Mediator.png)
    
-   В качестве списков верных и неверных вариантов ответов был использован _ArrayList<StringProperty>_
+   Модель, содержащая вопрос, список правильных и ошибочных ответов реализована на коллекции _ArrayList<StringProperty>_
 ```
 public class Qweston {
     StringProperty question;
